@@ -1,0 +1,25 @@
+{
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"],
+        "paths": ["src"]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "ignorePatterns": ["node_modules/"]
+}
