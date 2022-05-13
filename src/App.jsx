@@ -1,7 +1,8 @@
 import React from 'react';
+import Router from './core/router';
 
 function App() {
-  return <div>메인페이지입니다.</div>;
+  return <Router />;
 }
 
 export default App;
