@@ -2,3 +2,6 @@
 
 # SOPTube-frontend
 30기 THE SOPT 합동 세미나 1조
+- 박나희
+- 정윤선
+- 최다인
