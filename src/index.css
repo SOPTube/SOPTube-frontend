@@ -1,1 +1,5 @@
 /* 폰트 선언용 */
+@font-face {
+  font-family: 'Noto Sans KR';
+  src: url('./assets/fonts/NotoSansKR-Medium.otf') format('opentype');
+}
