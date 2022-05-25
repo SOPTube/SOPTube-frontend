@@ -5,12 +5,12 @@ import styled from 'styled-components';
 interface VideoDiscriptionProps{
     userThumbnail?:string,
     title: string,
-    channel: string,
-    view: string,
-    timeago: string
+    user: string,
+    views: string,
+    timeAgo: string
 }
 */
-function VideoDiscription({ userTumbnail, title, channel, view, timeago }) {
+function VideoDiscription({ userTumbnail, title, channel, view, timeAgo }) {
   return (
     <Styled.Root>
       {userTumbnail && <Styled.Thumbnail src={userTumbnail} alt="유저 썸네일" />}
@@ -19,7 +19,7 @@ function VideoDiscription({ userTumbnail, title, channel, view, timeago }) {
         <Styled.Channel>{channel}</Styled.Channel>
         <Styled.MoreInformation>
           <span>조회수 {view}회</span>
-          <span>{timeago}</span>
+          <span>{timeAgo}</span>
         </Styled.MoreInformation>
       </Styled.Description>
     </Styled.Root>
