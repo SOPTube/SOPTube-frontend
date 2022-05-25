@@ -2,11 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import MainVideoCard from './MainVideoCard';
 
-function MainVideo(data) {
+function MainVideo({ data }) {
   return (
     <Styled.Root>
-      {data?.map(() => (
-        <MainVideoCard key={data?.videId} data={data} />
+      {data?.map((item) => (
+        <MainVideoCard key={item?.videoId} data={item} />
       ))}
     </Styled.Root>
   );

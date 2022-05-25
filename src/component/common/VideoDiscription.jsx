@@ -6,19 +6,20 @@ interface VideoDiscriptionProps{
     userThumbnail?:string,
     title: string,
     user: string,
-    views: string,
+    viewss: string,
     timeAgo: string
 }
 */
-function VideoDiscription({ userTumbnail, title, channel, view, timeAgo }) {
+function VideoDiscription({ userThumbnail, title, user, views, timeAgo }) {
+  console.log('description에 들어온 애들', userThumbnail, title, user, views, timeAgo);
   return (
     <Styled.Root>
-      {userTumbnail && <Styled.Thumbnail src={userTumbnail} alt="유저 썸네일" />}
+      {userThumbnail && <Styled.Thumbnail src={userThumbnail} alt="유저 썸네일" />}
       <Styled.Description>
         <Styled.Title>{title}</Styled.Title>
-        <Styled.Channel>{channel}</Styled.Channel>
+        <Styled.User>{user}</Styled.User>
         <Styled.MoreInformation>
-          <span>조회수 {view}회</span>
+          <span>조회수 {views}회</span>
           <span>{timeAgo}</span>
         </Styled.MoreInformation>
       </Styled.Description>
@@ -33,6 +34,6 @@ const Styled = {
   Thumbnail: styled.img``,
   Description: styled.div``,
   Title: styled.h3``,
-  Chnnel: styled.p``,
+  User: styled.p``,
   MoreInformation: styled.p``,
 };
