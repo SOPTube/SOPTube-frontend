@@ -9,7 +9,7 @@ function Main() {
 
   return (
     <Styled.Root>
-      <MainTagList setCurrentType={setCurrentType} />
+      <MainTagList setCurrentType={setCurrentType} currentType={currentType} />
       <MainVideo data={mainVideoData} />
     </Styled.Root>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Tag from '../common/Tag';
 import { mainTagList } from '../../constants/tagList';
 import styled from 'styled-components';
@@ -7,15 +7,20 @@ interface MainTagListProps {
     setCurrentType: setState
 }
 */
-function MainTagList({ setCurrentType }) {
+function MainTagList({ setCurrentType, currentType }) {
+  // const [isClicked, setIsClicked] = useState()
   const handleOnClick = (e) => {
-    console.log('>>클릭한 테그', e.target.value);
-    setCurrentType(e.target.value);
+    setCurrentType(e.currentTarget.id);
   };
   return (
     <Styled.Root>
       {mainTagList.map((item) => (
-        <Tag key={item.id} onClick={handleOnClick}>
+        <Tag
+          key={item.id}
+          onClick={handleOnClick}
+          id={item.contents}
+          isClicked={item.contents === currentType}
+        >
           {item.contents}
         </Tag>
       ))}
@@ -26,5 +31,9 @@ function MainTagList({ setCurrentType }) {
 export default MainTagList;
 
 const Styled = {
-  Root: styled.ul``,
+  Root: styled.ul`
+    display: flex;
+    width: 106.2rem;
+    height: 5.5rem;
+  `,
 };

@@ -11,7 +11,6 @@ interface VideoDiscriptionProps{
 }
 */
 function VideoDiscription({ userThumbnail, title, user, views, timeAgo }) {
-  console.log('description에 들어온 애들', userThumbnail, title, user, views, timeAgo);
   return (
     <Styled.Root>
       {userThumbnail && <Styled.Thumbnail src={userThumbnail} alt="유저 썸네일" />}

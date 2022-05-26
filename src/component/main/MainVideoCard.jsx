@@ -15,7 +15,6 @@ interface MainVideoCardProps{
 */
 // videoThumbnail, duration, userThumbnail, title, user, views, timeAgo
 function MainVideoCard({ data }) {
-  console.log('[>>>data', data);
   return (
     <Styled.Root>
       <Styled.VideoBox>
