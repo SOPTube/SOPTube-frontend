@@ -1,15 +1,15 @@
 import React from 'react';
-import Tag from '../common/Tag';
-import { mainTagList } from '../../constants/tagList';
+import Tag from './Tag';
+import { tagList } from '../../constants/tagList';
 import styled from 'styled-components';
 
-function MainTagList({ setCurrentType, currentType }) {
+function TagList({ setCurrentType, currentType, pageType }) {
   const handleOnClick = (e) => {
     setCurrentType(e.currentTarget.id);
   };
   return (
     <Styled.Root>
-      {mainTagList.map((item) => (
+      {tagList[pageType].map((item) => (
         <Tag
           key={item.id}
           onClick={handleOnClick}
@@ -23,7 +23,7 @@ function MainTagList({ setCurrentType, currentType }) {
   );
 }
 
-export default MainTagList;
+export default TagList;
 
 const Styled = {
   Root: styled.ul`
