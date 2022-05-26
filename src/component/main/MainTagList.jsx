@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Tag from '../common/Tag';
 import { mainTagList } from '../../constants/tagList';
 import styled from 'styled-components';
-/*
-interface MainTagListProps {
-    setCurrentType: setState
-}
-*/
+
 function MainTagList({ setCurrentType, currentType }) {
-  // const [isClicked, setIsClicked] = useState()
   const handleOnClick = (e) => {
     setCurrentType(e.currentTarget.id);
   };

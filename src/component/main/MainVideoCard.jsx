@@ -13,7 +13,7 @@ interface MainVideoCardProps{
     timeAgo: string
 }
 */
-// videoThumbnail, duration, userThumbnail, title, user, views, timeAgo
+
 function MainVideoCard({ data }) {
   return (
     <Styled.Root>
@@ -43,7 +43,6 @@ const Styled = {
     position: relative;
   `,
   Video: styled.img`
-    /* width: 29.1rem; */
     height: 16.3rem;
     width: 100%;
     background: ${({ theme }) => theme.color.default_grey};
