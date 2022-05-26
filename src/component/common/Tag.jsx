@@ -33,6 +33,10 @@ const Styled = {
     & a {
       list-style-type: none;
       color: ${(props) => (props.isClicked ? props.theme.color.white : props.theme.color.black)};
+      font-style: normal;
+      font-weight: 400;
+      font-size: 1.3rem;
+      line-height: 1.9rem;
       ${flexRowCenter};
       &:link {
         text-decoration: none;
