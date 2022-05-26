@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import MainTagList from '../component/common/TagList';
+import TagList from '../component/common/TagList';
 import MainVideo from '../component/main/MainVideo';
 import { mainVideoData } from '../mock-data';
 
@@ -9,7 +9,7 @@ function Main() {
 
   return (
     <Styled.Root>
-      <MainTagList setCurrentType={setCurrentType} currentType={currentType} pageType="main" />
+      <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="main" />
       <MainVideo data={mainVideoData} />
     </Styled.Root>
   );

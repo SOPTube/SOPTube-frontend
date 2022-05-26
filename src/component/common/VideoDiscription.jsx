@@ -33,7 +33,6 @@ const Styled = {
     display: flex;
     justify-content: flex-start;
     align-items: ceters;
-    margin-top: 1.3rem;
     width: 23.5rem;
   `,
   Thumbnail: styled.img`
@@ -45,7 +44,6 @@ const Styled = {
   Description: styled.div`
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     width: 28.3rem;
     height: 6.6rem;
   `,

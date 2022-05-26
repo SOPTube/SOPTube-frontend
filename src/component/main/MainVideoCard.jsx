@@ -41,6 +41,7 @@ const Styled = {
   `,
   VideoBox: styled.div`
     position: relative;
+    margin-bottom: 1.3rem;
   `,
   Video: styled.img`
     height: 16.3rem;

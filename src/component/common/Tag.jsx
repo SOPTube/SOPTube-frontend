@@ -11,7 +11,7 @@ interface TagProps{
 function Tag({ children, isClicked, ...props }) {
   return (
     <Styled.Root isClicked={isClicked} {...props}>
-      <a href="/#">{children}</a>
+      <a href="#">{children}</a>
     </Styled.Root>
   );
 }
@@ -20,6 +20,8 @@ export default Tag;
 
 const Styled = {
   Root: styled.li`
+    cursor: pointer;
+    z-index: 1;
     ${flexRowCenter};
     padding: 0.6rem 1.3rem;
     border-radius: 5rem;
