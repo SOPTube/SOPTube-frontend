@@ -15,5 +15,13 @@ function MainVideo({ data }) {
 export default MainVideo;
 
 const Styled = {
-  Root: styled.ul``,
+  Root: styled.ul`
+    width: 83%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6.8rem 1.5rem;
+  `,
 };
