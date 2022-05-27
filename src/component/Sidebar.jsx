@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import theme from '../styles/theme';
 
 import homeSrc from '../assets/icon/icn_home.png';
 import exploreSrc from '../assets/icon/icn_explore.png';
@@ -125,7 +124,7 @@ const FlexSection = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 1.2rem 0;
-  border-bottom: 1px solid ${theme.color.light_grey_02};
+  border-bottom: 1px solid ${({ theme }) => theme.color.light_grey_02};
 `;
 
 const FlexDiv = styled.div`
