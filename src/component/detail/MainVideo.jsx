@@ -6,6 +6,7 @@ import shareSrc from '../../assets/icon/icn_share.png';
 import clipSrc from '../../assets/icon/icn_clip.png';
 import saveSrc from '../../assets/icon/icn_save.png';
 import moreSrc from '../../assets/icon/icn_more.png';
+import Profile from '../../assets/icon/img_profile.png';
 
 export default function MainVideo() {
   return (
@@ -56,6 +57,13 @@ export default function MainVideo() {
         </ChannelContent>
         <SubscribeButton>구독</SubscribeButton>
       </VideoChannel>
+      <Styled.Wrapper>
+        <Styled.CommentCount>댓글 4개</Styled.CommentCount>
+        <Styled.AddComment>
+          <Styled.ProfileImg src={Profile} />
+          <Styled.Input type="text" placeholder="댓글 추가..." />
+        </Styled.AddComment>
+      </Styled.Wrapper>
     </MainVideoWrapper>
   );
 }
@@ -203,3 +211,41 @@ const SubscribeButton = styled.button`
   border-radius: 0.2rem;
   color: white;
 `;
+
+const Styled = {
+  Wrapper: styled.div`
+    width: 106.8rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+  `,
+  CommentCount: styled.h2`
+    width: 100%;
+    height: 2.3rem;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 2.3rem;
+    margin-bottom: 1.3rem;
+    margin: 24px;
+  `,
+  AddComment: styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 1023px;
+    margin: 7px 23px;
+  `,
+  Input: styled.input`
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    height: 25.5px;
+    ::placeholder {
+      color: black;
+    }
+  `,
+  ProfileImg: styled.img`
+    width: 41px;
+    height: 41px;
+  `,
+};
