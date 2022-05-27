@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import likedSrc from '../assets/icon/icn_likedVideos.png';
-import dislikedSrc from '../assets/icon/icn_disliked.png';
-import shareSrc from '../assets/icon/icn_share.png';
-import clipSrc from '../assets/icon/icn_clip.png';
-import saveSrc from '../assets/icon/icn_save.png';
-import moreSrc from '../assets/icon/icn_more.png';
+import likedSrc from '../../assets/icon/icn_likedVideos.png';
+import dislikedSrc from '../../assets/icon/icn_disliked.png';
+import shareSrc from '../../assets/icon/icn_share.png';
+import clipSrc from '../../assets/icon/icn_clip.png';
+import saveSrc from '../../assets/icon/icn_save.png';
+import moreSrc from '../../assets/icon/icn_more.png';
 
 export default function MainVideo() {
   return (

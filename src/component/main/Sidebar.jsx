@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import homeSrc from '../assets/icon/icn_home.png';
-import exploreSrc from '../assets/icon/icn_explore.png';
-import shortsSrc from '../assets/icon/icn_shorts.png';
-import subscriptionsSrc from '../assets/icon/icn_subscriptions.png';
-import librarySrc from '../assets/icon/icn_library.png';
-import historySrc from '../assets/icon/icn_history.png';
-import yourVideosSrc from '../assets/icon/icn_yourVideos.png';
-import watchLaterSrc from '../assets/icon/icn_watchLater.png';
-import likedVideosSrc from '../assets/icon/icn_likedVideos.png';
-import youtubePremiumSrc from '../assets/icon/icn_youtubePremium.png';
-import moviesSrc from '../assets/icon/icn_movies.png';
-import gamingSrc from '../assets/icon/icn_gaming.png';
-import liveSrc from '../assets/icon/icn_live.png';
-import learningSrc from '../assets/icon/icn_learning.png';
-import sportsSrc from '../assets/icon/icn_sports.png';
-import settingsSrc from '../assets/icon/icn_settings.png';
-import reportHistorySrc from '../assets/icon/icn_reportHistory.png';
-import helpSrc from '../assets/icon/icn_help.png';
-import sendFeedbackSrc from '../assets/icon/icn_sendFeedback.png';
+import homeSrc from '../../assets/icon/icn_home.png';
+import exploreSrc from '../../assets/icon/icn_explore.png';
+import shortsSrc from '../../assets/icon/icn_shorts.png';
+import subscriptionsSrc from '../../assets/icon/icn_subscriptions.png';
+import librarySrc from '../../assets/icon/icn_library.png';
+import historySrc from '../../assets/icon/icn_history.png';
+import yourVideosSrc from '../../assets/icon/icn_yourVideos.png';
+import watchLaterSrc from '../../assets/icon/icn_watchLater.png';
+import likedVideosSrc from '../../assets/icon/icn_likedVideos.png';
+import youtubePremiumSrc from '../../assets/icon/icn_youtubePremium.png';
+import moviesSrc from '../../assets/icon/icn_movies.png';
+import gamingSrc from '../../assets/icon/icn_gaming.png';
+import liveSrc from '../../assets/icon/icn_live.png';
+import learningSrc from '../../assets/icon/icn_learning.png';
+import sportsSrc from '../../assets/icon/icn_sports.png';
+import settingsSrc from '../../assets/icon/icn_settings.png';
+import reportHistorySrc from '../../assets/icon/icn_reportHistory.png';
+import helpSrc from '../../assets/icon/icn_help.png';
+import sendFeedbackSrc from '../../assets/icon/icn_sendFeedback.png';
 
 export default function Sidebar() {
   return (
@@ -116,6 +116,7 @@ const SidebarWrapper = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-width: 24rem;
 `;
 
 const FlexSection = styled.section`

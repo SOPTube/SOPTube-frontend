@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import TagList from '../component/common/TagList';
-import MainVideo from '../component/main/MainVideo';
+import MainVideoList from '../component/main/MainVideoList';
+import Sidebar from '../component/main/Sidebar';
 import { mainVideoData } from '../mock-data';
 
 function Main() {
@@ -9,10 +10,13 @@ function Main() {
 
   return (
     <Styled.Root>
-      <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="main" />
-      <MainVideo data={mainVideoData} />
+      <Sidebar />
+      <div>
+        <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="main" />
+        <MainVideoList data={mainVideoData} />
+      </div>
     </Styled.Root>
-  )
+  );
 }
 
 export default Main;
@@ -21,5 +25,6 @@ const Styled = {
   Root: styled.div`
     width: 100%;
     height: 100%;
+    display: flex;
   `,
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import MainVideoCard from './MainVideoCard';
 
-function MainVideo({ data }) {
+function MainVideoList({ data }) {
   return (
     <Styled.Root>
       {data?.map((item) => (
@@ -12,7 +12,7 @@ function MainVideo({ data }) {
   );
 }
 
-export default MainVideo;
+export default MainVideoList;
 
 const Styled = {
   Root: styled.ul`
