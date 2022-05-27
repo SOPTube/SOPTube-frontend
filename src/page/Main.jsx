@@ -12,7 +12,7 @@ function Main() {
       <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="main" />
       <MainVideo data={mainVideoData} />
     </Styled.Root>
-  );
+  )
 }
 
 export default Main;
