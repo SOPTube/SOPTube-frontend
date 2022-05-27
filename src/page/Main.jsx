@@ -1,10 +1,10 @@
 import React from 'react';
-import Sidebar from '../component/Sidebar';
+import MainVideo from '../component/MainVideo';
 
 function Main() {
   return (
     <div>
-      <Sidebar />
+      <MainVideo />
     </div>
   );
 }
