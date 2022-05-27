@@ -12,12 +12,12 @@ export default function MainVideo() {
     <MainVideoWrapper>
       <MainVideoImg />
       <VideoDetails>
-        <VideoHashTags>#해시태그 #해시태그</VideoHashTags>
-        <VideoTitle>제목을 입력하세요.</VideoTitle>
+        <VideoHashTags>#경춘선에있음 #지하철코딩</VideoHashTags>
+        <VideoTitle>고기 언제 먹어요? </VideoTitle>
         <VideoMoreDetails>
           <ViewsAndUploadedTime>
             <Views>조회수 13회•</Views>
-            <UploadedTime>2022년 05월 06일</UploadedTime>
+            <UploadedTime>2022년 05월 27일</UploadedTime>
           </ViewsAndUploadedTime>
           <ButtonsContainer>
             <ButtonConatiner>
