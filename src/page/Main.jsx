@@ -4,12 +4,14 @@ import TagList from '../component/common/TagList';
 import MainVideoList from '../component/main/MainVideoList';
 import Sidebar from '../component/main/Sidebar';
 import { mainVideoData } from '../mock-data';
+import Header from '../component/Header';
 
 function Main() {
   const [currentType, setCurrentType] = useState('동물');
 
   return (
     <Styled.Root>
+      <Header />
       <Sidebar />
       <div>
         <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="main" />
