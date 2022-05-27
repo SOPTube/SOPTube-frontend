@@ -54,6 +54,7 @@ export default function MainVideo() {
           <WrittenContent>내용을 입력하시오...</WrittenContent>
           <WrittenHashTags>#엠티중 #배고파 #밥언제먹지</WrittenHashTags>
         </ChannelContent>
+        <SubscribeButton>구독</SubscribeButton>
       </VideoChannel>
     </MainVideoWrapper>
   );
@@ -155,7 +156,7 @@ const ChannelImg = styled.img`
 `;
 
 const ChannelContent = styled.div`
-  width: calc(100% - 4.9rem - 1.5rem);
+  width: calc(100% - (4.9rem + 1.5rem + 7.4rem));
   display: flex;
   flex-direction: column;
 `;
@@ -192,4 +193,13 @@ const WrittenHashTags = styled.div`
   font-size: 1.3rem;
   line-height: 1.9rem;
   margin-bottom: 6rem;
+`;
+
+const SubscribeButton = styled.button`
+  width: 7.4rem;
+  height: 3.8rem;
+  background-color: ${({ theme }) => theme.color.main_red};
+  border: none;
+  border-radius: 0.2rem;
+  color: white;
 `;
