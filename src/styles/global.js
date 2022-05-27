@@ -6,12 +6,14 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
+    height: 100%;
   }
   
   html,
   body {
     font-size: 10px;
     font-family: 'Noto Sans KR';
+    height: 100%;
   }
 `;
 
