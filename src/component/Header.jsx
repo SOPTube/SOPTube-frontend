@@ -1,19 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-
-import Logo from "../assets/assets_header/Logo.svg";
-import Notice from "../assets/assets_header/Notice.svg";
-import Menubar from "../assets/assets_header/Menubar.svg";
-import Search from "../assets/assets_header/Search.svg";
-import Totalmenu from "../assets/assets_header/Totalmenu.svg";
-import Camera from "../assets/assets_header/Camera.svg";
-import Profile from "../assets/assets_header/Profile.svg";
+import Logo from "../assets/assets_header/img_logo.png";
+import Notice from "../assets/assets_header/icn_notice.png";
+import Menubar from "../assets/assets_header/icn_menu.png";
+import Search from "../assets/assets_header/icn_search.png";
+import Totalmenu from "../assets/assets_header/icn_totalmenu.png";
+import Camera from "../assets/assets_header/icn_camera.png";
+import Profile from "../assets/assets_header/profile.png";
 
 const Header = () => {
   return (
     <Styled.Wrapper>
       <Styled.Set>
-        <Menubar />
+        <Styled.Button src={Menubar} />
         <Styled.Button src={Logo} />
       </Styled.Set>
 
@@ -23,9 +22,9 @@ const Header = () => {
       </Styled.Search>
 
       <Styled.Set>
-        <Camera />
-        <Totalmenu />
-        <Notice />
+        <Styled.Button src={Camera} />
+        <Styled.Button src={Totalmenu} />
+        <Styled.Button src={Notice} />
         <Styled.Button src={Profile} />
       </Styled.Set>
     </Styled.Wrapper>
