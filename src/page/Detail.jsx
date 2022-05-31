@@ -13,10 +13,10 @@ function Detail() {
       <Header />
       <Styled.Main>
         <MainVideo />
-        <div>
+        <Styled.Section>
           <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="detail" />
           <DetailVideo data={detailVideoData} />
-        </div>
+        </Styled.Section>
       </Styled.Main>
     </Styled.Root>
   );
@@ -30,7 +30,15 @@ const Styled = {
     height: 100%;
   `,
   Main: styled.main`
-    margin-top: 5.5rem;
+    margin-top: 5.6rem;
     display: flex;
+  `,
+  Section: styled.section`
+    ul {
+      &:first-child {
+        width: 100%;
+        min-width: 41rem;
+      }
+    }
   `,
 };

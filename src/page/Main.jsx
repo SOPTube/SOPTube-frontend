@@ -36,6 +36,8 @@ const Styled = {
       &:first-child {
         position: fixed;
         z-index: 1;
+        min-width: 106.2rem;
+        width: 100%;
       }
       &:nth-child(2) {
         margin-top: 5.5rem;
