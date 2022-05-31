@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import Logo from '../assets/assets_header/img_logo.png';
-import Notice from '../assets/assets_header/icn_notice.png';
-import Menubar from '../assets/assets_header/icn_menu.png';
-import Search from '../assets/assets_header/icn_search.png';
-import Totalmenu from '../assets/assets_header/icn_totalmenu.png';
-import Camera from '../assets/assets_header/icn_camera.png';
-import Profile from '../assets/assets_header/profile.png';
+import Logo from '../../assets/assets_header/img_logo.png';
+import Notice from '../../assets/assets_header/icn_notice.png';
+import Menubar from '../../assets/assets_header/icn_menu.png';
+import Search from '../../assets/assets_header/icn_search.png';
+import Totalmenu from '../../assets/assets_header/icn_totalmenu.png';
+import Camera from '../../assets/assets_header/icn_camera.png';
+import Profile from '../../assets/assets_header/profile.png';
 
 const Header = () => {
   return (
@@ -43,7 +43,7 @@ const Styled = {
     justify-content: space-between;
     padding: 0px 20px;
     height: 56px;
-    z-index: 1;
+    z-index: 2;
 
     @media (max-width: 800px) {
       justify-content: space-around;

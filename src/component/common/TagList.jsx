@@ -30,5 +30,6 @@ const Styled = {
     display: flex;
     width: 106.2rem;
     height: 5.5rem;
+    background: white;
   `,
 };
