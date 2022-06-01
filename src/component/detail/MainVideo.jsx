@@ -7,6 +7,11 @@ import clipSrc from '../../assets/icon/icn_clip.png';
 import saveSrc from '../../assets/icon/icn_save.png';
 import moreSrc from '../../assets/icon/icn_more.png';
 import Profile from '../../assets/icon/img_profile.png';
+import Profile2 from '../../assets/icon/profile2.png';
+import UpOff from '../../assets/icon/ic_up_off.png';
+import Profile3 from '../../assets/icon/bear.png';
+import Profile4 from '../../assets/icon/fox.png';
+import Profile5 from '../../assets/icon/deer.png';
 
 export default function MainVideo() {
   return (
@@ -63,10 +68,77 @@ export default function MainVideo() {
           <Styled.ProfileImg src={Profile} />
           <Styled.Input type="text" placeholder="댓글 추가..." />
         </Styled.AddComment>
+        <Styled.Comment>
+          <Styled.CommentImg src={Profile2} />
+          <Styled.CommentWrap>
+            <Styled.ProfileName>
+              독수리
+              <span style={spanStyle}>1일전</span>
+            </Styled.ProfileName>
+            <Styled.CommentContent>
+              기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤
+            </Styled.CommentContent>
+            <ButtonConatiner>
+              <Styled.Ddabong1 src={UpOff} />5
+              <Styled.Ddabong2 src={UpOff} />
+            </ButtonConatiner>
+          </Styled.CommentWrap>
+        </Styled.Comment>
+        <Styled.Comment>
+          <Styled.CommentImg src={Profile3} />
+          <Styled.CommentWrap>
+            <Styled.ProfileName>
+              곰<span style={spanStyle}>2일전</span>
+            </Styled.ProfileName>
+            <Styled.CommentContent>
+              기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤
+            </Styled.CommentContent>
+            <ButtonConatiner>
+              <Styled.Ddabong1 src={UpOff} />7
+              <Styled.Ddabong2 src={UpOff} />
+            </ButtonConatiner>
+          </Styled.CommentWrap>
+        </Styled.Comment>
+        <Styled.Comment>
+          <Styled.CommentImg src={Profile4} />
+          <Styled.CommentWrap>
+            <Styled.ProfileName>
+              여우
+              <span style={spanStyle}>5일전</span>
+            </Styled.ProfileName>
+            <Styled.CommentContent>
+              기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤
+            </Styled.CommentContent>
+            <ButtonConatiner>
+              <Styled.Ddabong1 src={UpOff} />8
+              <Styled.Ddabong2 src={UpOff} />
+            </ButtonConatiner>
+          </Styled.CommentWrap>
+        </Styled.Comment>
+        <Styled.Comment>
+          <Styled.CommentImg src={Profile5} />
+          <Styled.CommentWrap>
+            <Styled.ProfileName>
+              사슴
+              <span style={spanStyle}>8일전</span>
+            </Styled.ProfileName>
+            <Styled.CommentContent>
+              기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤
+            </Styled.CommentContent>
+            <ButtonConatiner>
+              <Styled.Ddabong1 src={UpOff} />9
+              <Styled.Ddabong2 src={UpOff} />
+            </ButtonConatiner>
+          </Styled.CommentWrap>
+        </Styled.Comment>
       </Styled.Wrapper>
     </MainVideoWrapper>
   );
 }
+const spanStyle = {
+  color: '#606060',
+  margin: '1px',
+};
 
 const MainVideoWrapper = styled.article`
   width: 106.8rem;
@@ -215,7 +287,6 @@ const SubscribeButton = styled.button`
 const Styled = {
   Wrapper: styled.div`
     width: 106.8rem;
-    height: fit-content;
     display: flex;
     flex-direction: column;
   `,
@@ -247,5 +318,48 @@ const Styled = {
   ProfileImg: styled.img`
     width: 41px;
     height: 41px;
+    margin-right: 15px;
+  `,
+  Comment: styled.article`
+    display: flex;
+    align-items: flex-start;
+    width: 756px;
+    height: 89px;
+    flex-direction: row;
+    margin: 25px 23px;
+  `,
+  ProfileName: styled.h4`
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.7rem;
+    margin-bottom: 0.6rem;
+  `,
+  CommentImg: styled.img`
+    width: 41px;
+    height: 41px;
+    margin-top: 7px;
+    margin-right: 15px;
+  `,
+  CommentWrap: styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 6px;
+  `,
+  CommentContent: styled.h4`
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.7rem;
+    margin-bottom: 15px;
+  `,
+  Ddabong1: styled.img`
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+  `,
+  Ddabong2: styled.img`
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+    transform: scaleX(-1) scaleY(-1);
   `,
 };

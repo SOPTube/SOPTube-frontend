@@ -5,7 +5,6 @@ import DetailVideo from '../component/detail/DetailVideo';
 import MainVideo from '../component/detail/MainVideo';
 import { detailVideoData } from '../mock-data';
 import Header from '../component/Header';
-import DetailComment from '../component/detail/DetailComment';
 
 function Detail() {
   const [currentType, setCurrentType] = useState('모두');

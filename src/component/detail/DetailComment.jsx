@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Profile from '../../assets/icon/img_profile.png';
+import Profile2 from '../../assets/icon/profile2.png';
+import UpOff from '../../assets/icon/ic_up_off.png';
+import DownOff from '../../assets/icon/ic_down_off.png';
 
 const DetailComment = () => {
   return (
@@ -11,11 +14,24 @@ const DetailComment = () => {
         <Styled.Input type="text" placeholder="댓글 추가..." />
       </Styled.AddComment>
       <Styled.Comment>
-        <Styled.ProfileImg src={Profile} />
-        <Styled.ProfileName>독수리</Styled.ProfileName>
+        <Styled.CommentImg src={Profile2} />
+        <Styled.CommentWrap>
+          <Styled.ProfileName>
+            독수리
+            <span style={spanStyle}>1일전</span>
+          </Styled.ProfileName>
+          <Styled.CommentContent>
+            기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤
+          </Styled.CommentContent>
+          <Styled.Ddabong src={UpOff} />
+          <Styled.Ddabong src={DownOff} />
+        </Styled.CommentWrap>
       </Styled.Comment>
     </Styled.Wrapper>
   );
+};
+const spanStyle = {
+  color: '#606060',
 };
 
 const Styled = {
@@ -49,19 +65,43 @@ const Styled = {
   ProfileImg: styled.img`
     width: 41px;
     height: 41px;
+    margin-right: 15px;
   `,
   Comment: styled.article`
+    background-color: red;
+    display: flex;
+    align-items: flex-start;
     width: 756px;
     height: 89px;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     margin: 25px 23px;
   `,
   ProfileName: styled.h4`
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 12px;
     line-height: 1.7rem;
     margin-bottom: 0.6rem;
+  `,
+  CommentImg: styled.img`
+    width: 41px;
+    height: 41px;
+    margin-right: 15px;
+  `,
+  CommentWrap: styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 6px;
+  `,
+  CommentContent: styled.h4`
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.7rem;
+    margin-bottom: 15px;
+  `,
+  Ddabong: styled.img`
+    width: 24px;
+    height: 24px;
+    margin-right: 39px;
   `,
 };
 
