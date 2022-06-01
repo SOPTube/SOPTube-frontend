@@ -117,6 +117,7 @@ const SidebarWrapper = styled.aside`
   flex-direction: column;
   align-items: center;
   min-width: 24rem;
+  position: fixed;
 `;
 
 const FlexSection = styled.section`

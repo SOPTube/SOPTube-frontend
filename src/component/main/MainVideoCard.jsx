@@ -37,7 +37,8 @@ export default MainVideoCard;
 const Styled = {
   Root: styled.li`
     height: fit-content;
-    width: 29.1rem;
+    min-width: 29.1rem;
+    /* flex-grow: 1; */
   `,
   VideoBox: styled.div`
     position: relative;

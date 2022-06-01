@@ -4,7 +4,7 @@ import TagList from '../component/common/TagList';
 import MainVideoList from '../component/main/MainVideoList';
 import Sidebar from '../component/main/Sidebar';
 import { mainVideoData } from '../mock-data';
-import Header from '../component/Header';
+import Header from '../component/common/Header';
 
 function Main() {
   const [currentType, setCurrentType] = useState('동물');
@@ -13,10 +13,10 @@ function Main() {
     <Styled.Root>
       <Header />
       <Sidebar />
-      <div>
+      <Styled.Main>
         <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="main" />
         <MainVideoList data={mainVideoData} />
-      </div>
+      </Styled.Main>
     </Styled.Root>
   );
 }
@@ -28,5 +28,20 @@ const Styled = {
     width: 100%;
     height: 100%;
     display: flex;
+  `,
+  Main: styled.main`
+    margin-left: 24rem;
+    margin-top: 5.6rem;
+    ul {
+      &:first-child {
+        position: fixed;
+        z-index: 1;
+        min-width: 106.2rem;
+        width: 100%;
+      }
+      &:nth-child(2) {
+        margin-top: 5.5rem;
+      }
+    }
   `,
 };

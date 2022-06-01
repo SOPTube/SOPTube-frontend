@@ -28,7 +28,8 @@ export default TagList;
 const Styled = {
   Root: styled.ul`
     display: flex;
-    width: 106.2rem;
+    /* width: 100%; */
     height: 5.5rem;
+    background: white;
   `,
 };
