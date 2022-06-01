@@ -5,6 +5,7 @@ import TagList from '../component/common/TagList';
 import DetailVideo from '../component/detail/DetailVideo';
 import MainVideo from '../component/detail/MainVideo';
 import { detailVideoData } from '../mock-data';
+import Header from '../component/Header';
 
 function Detail() {
   const [currentType, setCurrentType] = useState('모두');
@@ -27,10 +28,7 @@ export default Detail;
 const Styled = {
   Root: styled.div`
     width: 100%;
-    height: 100%;
-  `,
-  Main: styled.main`
-    margin-top: 5.6rem;
+    height: 100vh;
     display: flex;
   `,
   Section: styled.section`
