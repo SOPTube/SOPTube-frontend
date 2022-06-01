@@ -6,7 +6,8 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    height: 100%;
+    /* height: 100%; */
+    height: fit-content;
   }
   
   html,
