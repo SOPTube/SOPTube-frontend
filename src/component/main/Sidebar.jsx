@@ -118,6 +118,7 @@ const SidebarWrapper = styled.aside`
   align-items: center;
   min-width: 24rem;
   position: fixed;
+  overflow: hidden;
 `;
 
 const FlexSection = styled.section`
