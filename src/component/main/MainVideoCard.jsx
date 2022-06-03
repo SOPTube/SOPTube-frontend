@@ -14,9 +14,9 @@ interface MainVideoCardProps{
 }
 */
 
-function MainVideoCard({ data }) {
+function MainVideoCard({ data, ...props }) {
   return (
-    <Styled.Root>
+    <Styled.Root {...props}>
       <Styled.VideoBox>
         <Styled.Video src={data?.videoThumbnail} alt="비디오 썸네일" />
         <Styled.DurationBox>{data?.duration}</Styled.DurationBox>
@@ -38,6 +38,7 @@ const Styled = {
   Root: styled.li`
     height: fit-content;
     min-width: 29.1rem;
+    cursor: pointer;
     /* flex-grow: 1; */
   `,
   VideoBox: styled.div`

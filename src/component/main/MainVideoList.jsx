@@ -1,12 +1,17 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import MainVideoCard from './MainVideoCard';
 
 function MainVideoList({ data }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/detail', { state: '628de4f728d7b4dde3fb58e8' });
+  };
   return (
     <Styled.Root>
       {data?.map((item) => (
-        <MainVideoCard key={item?.videoId} data={item} />
+        <MainVideoCard key={item?.videoId} data={item} onClick={handleClick} />
       ))}
     </Styled.Root>
   );
