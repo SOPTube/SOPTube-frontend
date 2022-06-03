@@ -9,26 +9,47 @@ import moreSrc from '../../assets/icon/icn_more.png';
 import Profile from '../../assets/icon/img_profile.png';
 import Profile2 from '../../assets/icon/profile2.png';
 import UpOff from '../../assets/icon/ic_up_off.png';
-import Profile3 from '../../assets/icon/bear.png';
-import Profile4 from '../../assets/icon/fox.png';
-import Profile5 from '../../assets/icon/deer.png';
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 export default function MainVideo() {
+  const { state } = useLocation();
+  const [mainVideoInfo, setMainVideoInfo] = useState({});
+
+  const getMainVideoInfo = async () => {
+    const result = await axios.get(
+      `http://cors-anywhere.herokuapp.com/http://13.209.5.193:8000/video/${state}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+    setMainVideoInfo(result.data.data);
+  };
+
+  useEffect(() => {
+    getMainVideoInfo();
+  }, []);
+
+  if (!mainVideoInfo._id) return <div>Loading...</div>;
+
   return (
     <MainVideoWrapper>
-      <MainVideoImg />
+      <MainVideoImg src={mainVideoInfo.thumbnail} />
       <VideoDetails>
         <VideoHashTags>#경춘선에있음 #지하철코딩</VideoHashTags>
-        <VideoTitle>고기 언제 먹어요? </VideoTitle>
+        <VideoTitle>{mainVideoInfo.title}</VideoTitle>
         <VideoMoreDetails>
           <ViewsAndUploadedTime>
-            <Views>조회수 13회•</Views>
-            <UploadedTime>2022년 05월 27일</UploadedTime>
+            <Views>조회수 {mainVideoInfo.watches}회•</Views>
+            <UploadedTime>{mainVideoInfo.timeAgo}</UploadedTime>
           </ViewsAndUploadedTime>
           <ButtonsContainer>
             <ButtonConatiner>
               <FlexImg src={likedSrc} />
-              132
+              {mainVideoInfo.likes}
             </ButtonConatiner>
             <ButtonConatiner>
               <FlexImg src={dislikedSrc} />
@@ -53,84 +74,40 @@ export default function MainVideo() {
         </VideoMoreDetails>
       </VideoDetails>
       <VideoChannel>
-        <ChannelImg />
+        <ChannelImg src={mainVideoInfo.uploaderId.profileImg} />
         <ChannelContent>
-          <ChannelName>배고픈1조들</ChannelName>
-          <Subscribers>구독자 1027명</Subscribers>
-          <WrittenContent>내용을 입력하시오...</WrittenContent>
+          <ChannelName>{mainVideoInfo.uploaderId.name}</ChannelName>
+          <Subscribers>구독자 {mainVideoInfo.uploaderId.subscribes}명</Subscribers>
+          <WrittenContent>{mainVideoInfo.content}</WrittenContent>
           <WrittenHashTags>#엠티중 #배고파 #밥언제먹지</WrittenHashTags>
         </ChannelContent>
         <SubscribeButton>구독</SubscribeButton>
       </VideoChannel>
       <Styled.Wrapper>
-        <Styled.CommentCount>댓글 4개</Styled.CommentCount>
+        <Styled.CommentCount>댓글 {mainVideoInfo.comments.length}개</Styled.CommentCount>
         <Styled.AddComment>
           <Styled.ProfileImg src={Profile} />
           <Styled.Input type="text" placeholder="댓글 추가..." />
         </Styled.AddComment>
-        <Styled.Comment>
-          <Styled.CommentImg src={Profile2} />
-          <Styled.CommentWrap>
-            <Styled.ProfileName>
-              독수리
-              <span style={spanStyle}>1일전</span>
-            </Styled.ProfileName>
-            <Styled.CommentContent>
-              기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤
-            </Styled.CommentContent>
-            <ButtonConatiner>
-              <Styled.Ddabong1 src={UpOff} />5
-              <Styled.Ddabong2 src={UpOff} />
-            </ButtonConatiner>
-          </Styled.CommentWrap>
-        </Styled.Comment>
-        <Styled.Comment>
-          <Styled.CommentImg src={Profile3} />
-          <Styled.CommentWrap>
-            <Styled.ProfileName>
-              곰<span style={spanStyle}>2일전</span>
-            </Styled.ProfileName>
-            <Styled.CommentContent>
-              기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤
-            </Styled.CommentContent>
-            <ButtonConatiner>
-              <Styled.Ddabong1 src={UpOff} />7
-              <Styled.Ddabong2 src={UpOff} />
-            </ButtonConatiner>
-          </Styled.CommentWrap>
-        </Styled.Comment>
-        <Styled.Comment>
-          <Styled.CommentImg src={Profile4} />
-          <Styled.CommentWrap>
-            <Styled.ProfileName>
-              여우
-              <span style={spanStyle}>5일전</span>
-            </Styled.ProfileName>
-            <Styled.CommentContent>
-              기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤
-            </Styled.CommentContent>
-            <ButtonConatiner>
-              <Styled.Ddabong1 src={UpOff} />8
-              <Styled.Ddabong2 src={UpOff} />
-            </ButtonConatiner>
-          </Styled.CommentWrap>
-        </Styled.Comment>
-        <Styled.Comment>
-          <Styled.CommentImg src={Profile5} />
-          <Styled.CommentWrap>
-            <Styled.ProfileName>
-              사슴
-              <span style={spanStyle}>8일전</span>
-            </Styled.ProfileName>
-            <Styled.CommentContent>
-              기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤기엽게 생겼네욤
-            </Styled.CommentContent>
-            <ButtonConatiner>
-              <Styled.Ddabong1 src={UpOff} />9
-              <Styled.Ddabong2 src={UpOff} />
-            </ButtonConatiner>
-          </Styled.CommentWrap>
-        </Styled.Comment>
+        {mainVideoInfo.comments.map((comment) => {
+          return (
+            <Styled.Comment key={comment._id}>
+              <Styled.CommentImg src={comment.writerId.profileImg} />
+              <Styled.CommentWrap>
+                <Styled.ProfileName>
+                  {comment.writerId.name}
+                  <span style={spanStyle}>{comment.commentTimeAgo}</span>
+                </Styled.ProfileName>
+                <Styled.CommentContent>{comment.commentContent}</Styled.CommentContent>
+                <ButtonConatiner>
+                  <Styled.Ddabong1 src={UpOff} />
+                  {comment.commentLikes}
+                  <Styled.Ddabong2 src={UpOff} />
+                </ButtonConatiner>
+              </Styled.CommentWrap>
+            </Styled.Comment>
+          );
+        })}
       </Styled.Wrapper>
     </MainVideoWrapper>
   );
@@ -339,6 +316,7 @@ const Styled = {
     height: 41px;
     margin-top: 7px;
     margin-right: 15px;
+    border-radius: 50%;
   `,
   CommentWrap: styled.div`
     display: flex;

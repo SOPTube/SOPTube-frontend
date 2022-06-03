@@ -6,7 +6,7 @@ import MainVideoCard from './MainVideoCard';
 function MainVideoList({ data }) {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/detail', { state: '628de4f728d7b4dde3fb58e8' });
+    navigate('/detail', { state: '628de4f728d7b4dde3fb58e5' });
   };
   return (
     <Styled.Root>
