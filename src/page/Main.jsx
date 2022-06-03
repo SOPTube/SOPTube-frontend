@@ -5,9 +5,47 @@ import MainVideoList from '../component/main/MainVideoList';
 import Sidebar from '../component/main/Sidebar';
 import { mainVideoData } from '../mock-data';
 import Header from '../component/common/Header';
+import { getMainVideoList } from '../lib/getVideoList';
+import { useEffect } from 'react';
+import { flushSync } from 'react-dom';
+import { useVideoData } from '../hooks/useVideoData';
+import MainCategoryVideoResult from '../component/main/MainCategoryVideoResult';
 
 function Main() {
   const [currentType, setCurrentType] = useState('동물');
+  const [error, setError] = useState();
+  const [data, setData] = useState();
+  const [status, setStatus] = useState('LOADING');
+  // const { state, data, error } = useVideoData({ type: 'mainCategoryData', params: currentType });
+
+  const changeStatus = (currentStatus) => {
+    switch (currentStatus) {
+      case 'LOADING':
+        flushSync(() => setStatus('LOADING'));
+        break;
+      case 'ERROR':
+        flushSync(() => setStatus('ERROR'));
+        break;
+      default:
+        flushSync(() => setStatus('COMPLETE'));
+        break;
+    }
+  };
+
+  const getMainCategoryVideoData = async () => {
+    changeStatus('LOADING');
+    try {
+      const data = await getMainVideoList(currentType);
+      setData(data?.data?.data);
+      changeStatus('COMPLETE');
+    } catch (e) {
+      changeStatus('ERROR');
+      setError(e);
+    }
+  };
+  useEffect(() => {
+    currentType && getMainCategoryVideoData();
+  }, [currentType]);
 
   return (
     <Styled.Root>
@@ -15,7 +53,8 @@ function Main() {
       <Sidebar />
       <Styled.Main>
         <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="main" />
-        <MainVideoList data={mainVideoData} />
+        {/* <MainVideoList data={mainVideoData} /> */}
+        <MainCategoryVideoResult state={status} data={data} error={error} />
       </Styled.Main>
     </Styled.Root>
   );
@@ -32,6 +71,7 @@ const Styled = {
   Main: styled.main`
     margin-left: 24rem;
     margin-top: 5.6rem;
+    width: 100%;
     ul {
       &:first-child {
         position: fixed;
