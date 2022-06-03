@@ -6,12 +6,12 @@ import MainVideoCard from './MainVideoCard';
 function MainVideoList({ data }) {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate('/detail', { state: '628de4f728d7b4dde3fb58e8' });
+    navigate('/detail', { state: data?._id });
   };
   return (
     <Styled.Root>
       {data?.map((item) => (
-        <MainVideoCard key={item?.videoId} data={item} onClick={handleClick} />
+        <MainVideoCard key={item?._id} data={item} onClick={handleClick} />
       ))}
     </Styled.Root>
   );
@@ -21,8 +21,12 @@ export default MainVideoList;
 
 const Styled = {
   Root: styled.ul`
-    width: 83%;
+    width: 100%;
     height: 100%;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(291px, 1fr));
+    row-gap: 25px;
+    column-gap: 25px; */
     display: flex;
     justify-content: flex-start;
     align-items: center;

@@ -5,9 +5,15 @@ import MainVideoList from '../component/main/MainVideoList';
 import Sidebar from '../component/main/Sidebar';
 import { mainVideoData } from '../mock-data';
 import Header from '../component/common/Header';
+import { getMainVideoList } from '../lib/getVideoList';
+import { useEffect } from 'react';
+import { useVideoData } from '../hooks/useVideoData';
+import MainCategoryVideoResult from '../component/main/MainCategoryVideoResult';
 
 function Main() {
   const [currentType, setCurrentType] = useState('동물');
+
+  const { state, data, error } = useVideoData({ type: 'mainCategoryData', params: currentType });
 
   return (
     <Styled.Root>
@@ -15,7 +21,8 @@ function Main() {
       <Sidebar />
       <Styled.Main>
         <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="main" />
-        <MainVideoList data={mainVideoData} />
+        {/* <MainVideoList data={mainVideoData} /> */}
+        <MainCategoryVideoResult state={state} data={data} error={error} />
       </Styled.Main>
     </Styled.Root>
   );
@@ -32,6 +39,7 @@ const Styled = {
   Main: styled.main`
     margin-left: 24rem;
     margin-top: 5.6rem;
+    width: 100%;
     ul {
       &:first-child {
         position: fixed;
