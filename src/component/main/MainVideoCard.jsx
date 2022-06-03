@@ -18,14 +18,14 @@ function MainVideoCard({ data, ...props }) {
   return (
     <Styled.Root {...props}>
       <Styled.VideoBox>
-        <Styled.Video src={data?.videoThumbnail} alt="비디오 썸네일" />
-        <Styled.DurationBox>{data?.duration}</Styled.DurationBox>
+        <Styled.Video src={data?.thumbnail} alt="비디오 썸네일" />
+        <Styled.DurationBox>{data?.length}</Styled.DurationBox>
       </Styled.VideoBox>
       <VideoDiscription
-        userThumbnail={data?.userThumbnail}
+        userThumbnail={data?.thumbnail}
         title={data?.title}
-        user={data?.user}
-        views={data?.views}
+        user={data?.uploaderId}
+        views={data?.watches}
         timeAgo={data?.timeAgo}
       />
     </Styled.Root>
@@ -36,19 +36,23 @@ export default MainVideoCard;
 
 const Styled = {
   Root: styled.li`
-    height: fit-content;
-    min-width: 29.1rem;
+    /* height: fit-content; */
+    /* min-width: 29.1rem; */
     cursor: pointer;
     /* flex-grow: 1; */
   `,
   VideoBox: styled.div`
     position: relative;
+    height: 16.3rem;
+    width: 29.1rem;
+    width: 100%;
+    background: ${({ theme }) => theme.color.default_grey};
     margin-bottom: 1.3rem;
   `,
   Video: styled.img`
     height: 16.3rem;
-    width: 100%;
-    background: ${({ theme }) => theme.color.default_grey};
+    width: 29.1rem;
+    /* width: 100%; */
   `,
   DurationBox: styled.div`
     background: ${({ theme }) => theme.color.black};

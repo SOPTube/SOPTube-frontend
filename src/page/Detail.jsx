@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from '../component/common/Header';
 import TagList from '../component/common/TagList';
-import DetailVideo from '../component/detail/DetailVideo';
 import MainVideo from '../component/detail/MainVideo';
-import { detailVideoData } from '../mock-data';
+import RecommendVideoResult from '../component/detail/RecommendVideoResult';
+import { useVideoData } from '../hooks/useVideoData';
 
 function Detail() {
   const [currentType, setCurrentType] = useState('모두');
+
+  const { status, data, error } = useVideoData({ type: 'recommendedVideo' });
+
   return (
     <Styled.Root>
       <Header />
@@ -15,7 +18,7 @@ function Detail() {
         <MainVideo />
         <Styled.Section>
           <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="detail" />
-          <DetailVideo data={detailVideoData} />
+          <RecommendVideoResult status={status} data={data} error={error} />
         </Styled.Section>
       </Styled.Main>
     </Styled.Root>

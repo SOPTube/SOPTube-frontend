@@ -15,6 +15,7 @@ import { useState, useEffect } from 'react';
 
 export default function MainVideo() {
   const { state } = useLocation();
+  console.log('>>state', state);
   const [mainVideoInfo, setMainVideoInfo] = useState({});
 
   const getMainVideoInfo = async () => {
