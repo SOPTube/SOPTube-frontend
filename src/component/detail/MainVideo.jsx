@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import likedSrc from '../../assets/icon/icn_likedVideos.png';
 import dislikedSrc from '../../assets/icon/icn_disliked.png';
@@ -12,8 +12,35 @@ import UpOff from '../../assets/icon/ic_up_off.png';
 import Profile3 from '../../assets/icon/bear.png';
 import Profile4 from '../../assets/icon/fox.png';
 import Profile5 from '../../assets/icon/deer.png';
+import axios from 'axios';
+
+const BASE_URL = 'http://cors-anywhere.herokuapp.com/http://13.209.5.193:8000';
 
 export default function MainVideo() {
+  const [comment, setComment] = useState('');
+  const [inputValue, setInputValue] = useState('');
+
+  const postComment = async (value) => {
+    await axios
+      .post(`${BASE_URL}/video/${process.env.REACT_APP_VIDEO_ID}/comment`, {
+        writerId: `${process.env.REACT_APP_WRITER_ID}`,
+        commentContent: value,
+      })
+      .then(function (response) {
+        console.log(response);
+        setComment(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const onCheckEnter = (e) => {
+    if (e.key === 'Enter') {
+      postComment(inputValue);
+      console.log(inputValue);
+    }
+  };
   return (
     <MainVideoWrapper>
       <MainVideoImg />
@@ -66,8 +93,28 @@ export default function MainVideo() {
         <Styled.CommentCount>댓글 4개</Styled.CommentCount>
         <Styled.AddComment>
           <Styled.ProfileImg src={Profile} />
-          <Styled.Input type="text" placeholder="댓글 추가..." />
+          <Styled.Input
+            type="text"
+            placeholder="댓글 추가..."
+            onKeyPress={onCheckEnter}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
         </Styled.AddComment>
+        <Styled.Comment>
+          <Styled.CommentImg src={Profile2} />
+          <Styled.CommentWrap>
+            <Styled.ProfileName>
+              독수리
+              <span style={spanStyle}>1일전</span>
+            </Styled.ProfileName>
+            <Styled.CommentContent>{comment}</Styled.CommentContent>
+            <ButtonConatiner>
+              <Styled.Ddabong1 src={UpOff} />5
+              <Styled.Ddabong2 src={UpOff} />
+            </ButtonConatiner>
+          </Styled.CommentWrap>
+        </Styled.Comment>
         <Styled.Comment>
           <Styled.CommentImg src={Profile2} />
           <Styled.CommentWrap>
