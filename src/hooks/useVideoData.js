@@ -32,6 +32,7 @@ export const useVideoData = ({ type, params }) => {
   };
 
   const getMainCategoryVideoData = async (params) => {
+    console.log('>>>>params', params);
     changeStatus('LOADING');
     try {
       const data = await getMainVideoList(params);

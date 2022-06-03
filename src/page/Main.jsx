@@ -7,13 +7,45 @@ import { mainVideoData } from '../mock-data';
 import Header from '../component/common/Header';
 import { getMainVideoList } from '../lib/getVideoList';
 import { useEffect } from 'react';
+import { flushSync } from 'react-dom';
 import { useVideoData } from '../hooks/useVideoData';
 import MainCategoryVideoResult from '../component/main/MainCategoryVideoResult';
 
 function Main() {
   const [currentType, setCurrentType] = useState('동물');
+  const [error, setError] = useState();
+  const [data, setData] = useState();
+  const [status, setStatus] = useState('LOADING');
+  // const { state, data, error } = useVideoData({ type: 'mainCategoryData', params: currentType });
 
-  const { state, data, error } = useVideoData({ type: 'mainCategoryData', params: currentType });
+  const changeStatus = (currentStatus) => {
+    switch (currentStatus) {
+      case 'LOADING':
+        flushSync(() => setStatus('LOADING'));
+        break;
+      case 'ERROR':
+        flushSync(() => setStatus('ERROR'));
+        break;
+      default:
+        flushSync(() => setStatus('COMPLETE'));
+        break;
+    }
+  };
+
+  const getMainCategoryVideoData = async () => {
+    changeStatus('LOADING');
+    try {
+      const data = await getMainVideoList(currentType);
+      setData(data?.data?.data);
+      changeStatus('COMPLETE');
+    } catch (e) {
+      changeStatus('ERROR');
+      setError(e);
+    }
+  };
+  useEffect(() => {
+    currentType && getMainCategoryVideoData();
+  }, [currentType]);
 
   return (
     <Styled.Root>
@@ -22,7 +54,7 @@ function Main() {
       <Styled.Main>
         <TagList setCurrentType={setCurrentType} currentType={currentType} pageType="main" />
         {/* <MainVideoList data={mainVideoData} /> */}
-        <MainCategoryVideoResult state={state} data={data} error={error} />
+        <MainCategoryVideoResult state={status} data={data} error={error} />
       </Styled.Main>
     </Styled.Root>
   );

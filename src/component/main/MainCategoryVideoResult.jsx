@@ -1,11 +1,12 @@
 import React from 'react';
+import Loading from '../common/Loading';
 import MainVideoList from './MainVideoList';
 
 function MainCategoryVideoResult({ state, data, error }) {
-  console.log('>>data', data);
+  console.log('>>state', state);
   switch (state) {
     case 'LOADING':
-      return <div>로딩중 입니다</div>;
+      return <Loading />;
     case 'ERROR':
       return <div>에러가 났어요뮤ㅠ</div>;
     default:
