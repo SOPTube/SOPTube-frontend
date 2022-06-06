@@ -42,7 +42,7 @@ export default function MainVideo() {
       console.log(inputValue);
     }
   };
-  
+
   const { state } = useLocation();
   console.log('>>state', state);
   const [mainVideoInfo, setMainVideoInfo] = useState({});
